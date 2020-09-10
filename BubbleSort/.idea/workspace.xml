@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="4c9b80b1-0965-4dd3-8fbf-5fbae90c8b01" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectId" id="1gloG67ZdqarGTSqgYemoO8SoVO" />
+  <component name="ProjectViewState">
+    <option name="flattenPackages" value="true" />
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+  </component>
+  <component name="RunManager" selected="Application.NumberArray">
+    <configuration name="Main (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="bubblesort.spieler.sortieren.Main" />
+      <module name="Chapter_3_Sortieren" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="bubblesort.spieler.sortieren.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="bubblesort.arrayList.Main" />
+      <module name="Chapter_3_Sortieren" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="bubblesort.arrayList.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="NumberArray" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="bubblesort.NumberArray" />
+      <module name="Chapter_3_Sortieren" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="bubblesort.arrayList.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="NumberArray2" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="bubblesort.NumberArray2" />
+      <module name="Chapter_3_Sortieren" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="bubblesort.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="StringArray" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="bubblesort.StringArray" />
+      <module name="Chapter_3_Sortieren" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="bubblesort.arrayList.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.NumberArray" />
+        <item itemvalue="Application.Main (1)" />
+        <item itemvalue="Application.NumberArray2" />
+        <item itemvalue="Application.Main" />
+        <item itemvalue="Application.StringArray" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="4c9b80b1-0965-4dd3-8fbf-5fbae90c8b01" name="Default Changelist" comment="" />
+      <created>1598698440391</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1598698440391</updated>
+      <workItem from="1598698443961" duration="2194000" />
+      <workItem from="1598868894268" duration="48000" />
+      <workItem from="1598869311799" duration="80000" />
+      <workItem from="1598869618167" duration="4901000" />
+      <workItem from="1598956086216" duration="3773000" />
+      <workItem from="1599042307368" duration="2243000" />
+      <workItem from="1599134998526" duration="1663000" />
+      <workItem from="1599217424215" duration="3929000" />
+      <workItem from="1599241984669" duration="403000" />
+      <workItem from="1599304234313" duration="2692000" />
+      <workItem from="1599632921620" duration="2982000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="488" y="70" key="#com.intellij.ide.util.MemberChooser" timestamp="1599305702715">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="488" y="70" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1599305702715" />
+    <state x="363" y="99" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1598869337686">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="363" y="99" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1366.728@0.0.1366.728" timestamp="1598869337686" />
+    <state x="463" y="105" key="FileChooserDialogImpl" timestamp="1599308166290">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="463" y="105" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1599308166290" />
+    <state width="1323" height="287" key="GridCell.Tab.0.bottom" timestamp="1599638060973">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="287" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1599638060973" />
+    <state width="1323" height="287" key="GridCell.Tab.0.center" timestamp="1599638060973">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="287" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1599638060973" />
+    <state width="1323" height="287" key="GridCell.Tab.0.left" timestamp="1599638060973">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="287" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1599638060973" />
+    <state width="1323" height="287" key="GridCell.Tab.0.right" timestamp="1599638060973">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="287" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1599638060973" />
+    <state width="1323" height="273" key="GridCell.Tab.1.bottom" timestamp="1598959893587">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="273" key="GridCell.Tab.1.bottom/0.0.1366.728@0.0.1366.728" timestamp="1598959893587" />
+    <state width="1323" height="273" key="GridCell.Tab.1.center" timestamp="1598959893587">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="273" key="GridCell.Tab.1.center/0.0.1366.728@0.0.1366.728" timestamp="1598959893587" />
+    <state width="1323" height="273" key="GridCell.Tab.1.left" timestamp="1598959893587">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="273" key="GridCell.Tab.1.left/0.0.1366.728@0.0.1366.728" timestamp="1598959893587" />
+    <state width="1323" height="273" key="GridCell.Tab.1.right" timestamp="1598959893587">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="273" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1598959893587" />
+    <state x="274" y="0" key="new project wizard" timestamp="1599308167859">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="274" y="0" key="new project wizard/0.0.1366.728@0.0.1366.728" timestamp="1599308167859" />
+  </component>
+</project>
