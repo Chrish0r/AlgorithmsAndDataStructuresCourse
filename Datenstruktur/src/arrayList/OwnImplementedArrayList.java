@@ -20,6 +20,22 @@ public class OwnImplementedArrayList<E> { // E is a placeholder for any element/
 
     public static void main(String[] args) {
         OwnImplementedArrayList arrayList = new OwnImplementedArrayList();
+        OwnImplementedArrayList arrayList2 = new OwnImplementedArrayList();
+
+        arrayList2.add("Person 1");
+        arrayList2.add("Person 2"); // element to remove
+        arrayList2.add("Person 3");
+        arrayList2.add("Person 4");
+
+        System.out.println(Arrays.toString(arrayList2.elements));
+        arrayList2.remove(1);
+        System.out.println(Arrays.toString(arrayList2.elements));
+        System.out.println(arrayList2.get(1));
+
+
+     //   arrayList2.removeElement(1);
+      //  System.out.println(Arrays.toString(arrayList2.elements));
+     //   System.out.println(arrayList2.elements[1]);
 /*
         arrayList.add("Person 1");
         arrayList.add("Person 2");
@@ -42,7 +58,7 @@ public class OwnImplementedArrayList<E> { // E is a placeholder for any element/
             arrayList.add("Person " + (i + 1));
         }
 
-        System.out.println(arrayList.get(0));
+        System.out.println(System.lineSeparator() + arrayList.get(0));
         System.out.println(arrayList.get(11));
 
         arrayList.remove(2);
@@ -63,7 +79,11 @@ public class OwnImplementedArrayList<E> { // E is a placeholder for any element/
         arrayList.add("Person 19");
         System.out.println(System.lineSeparator() + Arrays.toString(arrayList.elements));
 
+        arrayList.remove(1);
+        System.out.println(System.lineSeparator() + Arrays.toString(arrayList.elements));
 
+        arrayList.removeElement(4);
+        System.out.println(System.lineSeparator() + Arrays.toString(arrayList.elements));
     }
 
     public void add(E element) {
@@ -78,8 +98,8 @@ public class OwnImplementedArrayList<E> { // E is a placeholder for any element/
     }
 
     private void ensureCapacity() {
-        int newSize = elements.length * 2;
-        elements = Arrays.copyOf(elements, newSize);
+        // int newSize = elements.length * 2;
+        elements = Arrays.copyOf(elements, size * 2);
     }
 
     public E get(int index) {
@@ -102,5 +122,16 @@ public class OwnImplementedArrayList<E> { // E is a placeholder for any element/
         }
         elements = updatedElements;
         size--;
+    }
+
+    public E removeElement(int index) {
+        E removeItem = (E) elements[index];
+
+        // Index verschieben
+        for(int i = index; i < size; i++) {
+            elements[index] = elements[i + 1];
+        }
+        size--;
+        return removeItem;
     }
 }

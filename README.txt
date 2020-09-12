@@ -1,0 +1,2 @@
+- Habe 2 Fragen im Kurs gestellt - eine zur removeE-Methode bzgl. Lektion 78.
+- Checke auch gerne ab, ob bestimmte behandelte Algorithmen im Vorlesungsskript vorkommen.
