@@ -17,6 +17,7 @@ public class PersonList {
       //  System.out.println(person2);
 
         PersonList pList = new PersonList(person1);
+    //    PersonList pList2 = new PersonList(person2);
 
         // Elemente hinzufügen
         // Elemente (Personen) hinzufügen
@@ -40,6 +41,17 @@ public class PersonList {
         } else {
             System.out.println("   -> Kein Eintrag gefunden");
         }
+
+        // print out list
+        System.out.println(System.lineSeparator() + "The current list is:");
+        pList.printList();
+
+        // delete
+        pList.delete("Heiko");
+        System.out.println(System.lineSeparator() + "Current list after one element was deleted:");
+        pList.printList();
+        System.out.println();
+
     }
 
     /**
@@ -77,5 +89,32 @@ public class PersonList {
         }
         System.out.println(username + " nicht gefunden!");
         return false;
+    }
+
+    // write list
+    public void printList() {
+        Person currentPerson = firstPerson;
+        while(currentPerson != null) {
+            System.out.println(currentPerson);
+            currentPerson = currentPerson.getNextPerson(); // jump to next element
+        }
+    }
+
+    public void delete(String username) {
+        Person currentPerson = firstPerson;
+        while((currentPerson.getNextPerson() != null) && !(currentPerson.getUsername().equalsIgnoreCase(username))) {
+            if(currentPerson.getNextPerson().getUsername().equalsIgnoreCase(username)) {
+                if(currentPerson.getNextPerson().getNextPerson() != null) {
+                    currentPerson.setNextPerson(currentPerson.getNextPerson().getNextPerson());
+                    return;
+                   // break;
+                } else {
+                    currentPerson.setNextPerson(null);
+                    return;
+                  //  break;
+                }
+            }
+            currentPerson = currentPerson.getNextPerson();
+        }
     }
 }
