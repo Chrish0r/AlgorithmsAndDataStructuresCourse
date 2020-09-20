@@ -64,4 +64,8 @@ public class ArrayExample {
             System.out.println(copyCustomizedRangeGreater[i] + System.lineSeparator());
         }
     }
+
+    public void test() {
+        
+    }
 }
