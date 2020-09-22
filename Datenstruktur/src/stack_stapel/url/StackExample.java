@@ -65,7 +65,7 @@ public class StackExample {
             String urlString = topElement.getUrl();
             topElement = topElement.getNext();
             currentHeight--;
-            return urlString;  // da zu diesem Objekt nun keine Referenz mehr vorhanden ist, wird es bei Zeit vom gargbage collector gelöscht.
+            return urlString;  // da zu diesem Objekt nun keine Referenz mehr vorhanden ist, wird es bei Zeiten vom gargbage collector gelöscht.
         }
     }
 
