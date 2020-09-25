@@ -93,7 +93,6 @@ public class OwnImplementedArrayList<E> { // E is a placeholder for any element/
         elements[size++] = element;
         /* elements[size] = element;
            size++;
-
          */
     }
 
