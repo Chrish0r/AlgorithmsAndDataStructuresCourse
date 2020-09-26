@@ -81,31 +81,53 @@ public class HashTableExample <K, V> {
     }
 
     // delete object
-    public V remove(K key) {
+   public V remove(K key) {
         int bucketIndex = getBucketIndex(key);
+
         HashNode<K, V> head = bucketArrayList.get(bucketIndex);
-
         HashNode<K, V> prev = null;
-
-        if(head == null) {
-            return null;
-        }
 
         while(head != null) {
             if(head.getKey().equals(key)) {
                 break;
             } else {
+                // wir gehen mit beiden Nodes/Elementen eff. einen Schritt weiter
                 prev = head;
                 head = head.getNext();
             }
         }
-        size--;
-        if(prev != null) {
-            
+        if(head == null) {
+            return null;
         }
-        prev.setNext(head.getNext());
+        size--;
+
+        if(prev != null) {
+            prev.setNext((head.getNext()));
+        } else {
+            bucketArrayList.set(bucketIndex, head.getNext());
+        }
+
         return head.getValue();
-    }
+
+
+        /*
+        while(head != null) {
+            if(head.getKey().equals(key)) {
+                size--;
+                 if(prev != null) {
+                     prev.setNext((head.getNext()));
+                  } else {
+                        bucketArrayList.set(bucketIndex, head.getNext());
+                  }
+                return head.getValue();
+            }
+            prev = head;
+            head = head.getNext();
+        }
+        return null;
+
+         */
+   }
 
     // helper methods
     public int size() {
