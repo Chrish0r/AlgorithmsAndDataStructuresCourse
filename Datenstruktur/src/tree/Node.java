@@ -13,6 +13,34 @@ public class Node<T> {
     public Node(T data) {
         this.data = data;
     }
+
+    //----------------------------client code / main----------------------------
+    public static void main(String[] args) {
+        Node<String> root = new Node<String>("root");
+
+        Node<String> node1 = new Node<String>("node1");
+        Node<String> node2 = new Node<String>("node2");
+        Node<String> node3 = new Node<String>("node3");
+
+        // create tree: root -> node1 -> node2 -> node3 -> node4, node5, node6, node7
+        root.addChild(node1);
+        node1.addChild(node2);
+        node2.addChild(node3);
+
+        ArrayList<Node<String>> childrenNodes = new ArrayList<>();
+        childrenNodes.add(new Node<String>("node4"));
+        childrenNodes.add(new Node<String>("node5"));
+        childrenNodes.add(new Node<String>("node6"));
+        childrenNodes.add(new Node<String>("node7"));
+
+        node3.addChildren(childrenNodes);
+
+        // print tree
+    //    root.printTree(root);
+        root.printTree2();
+
+    }
+
     //-----------------------------logic----------------------------------------
            // add one next-element
     public void addChild(Node<T> child) {
@@ -29,8 +57,35 @@ public class Node<T> {
         }
     }
 
-          // traversing through a tree -> recursion is helpful
-    public void
+          // traversing through a tree -> ideal regarding recursion
+            // depth firts (de: Tiefensuche)
+    public void printTree(Node<T> root) {
+        System.out.println(root.getData());
+
+        ArrayList<Node<T>> children = root.getChildrenNodes();
+        for(Node<T> child : children) {
+            printTree(child);
+        }
+    }
+
+    private void printTree2() {
+        String indent = "";
+        System.out.println(this.getData());
+
+        printChildren(indent, this.getChildrenNodes());
+    }
+
+    private void printChildren(String indent, ArrayList<Node<T>> childrenNodes) {
+        if(childrenNodes.size() == 0 || childrenNodes == null) {
+            return;
+        }
+        indent += "   ";
+
+        for(Node<T> child : childrenNodes) {
+            System.out.println(indent + child.getData());
+            printChildren(indent, child.getChildrenNodes());
+        }
+    }
 
     //---------------getters and setters---------------------------------
     public T getData() {
