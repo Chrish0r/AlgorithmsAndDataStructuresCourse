@@ -11,6 +11,7 @@ public class Node {
         this.value = value;
         leftNode = null;
         rightNode = null;
+       // leftNode = rightNode = null;
     }
 
     //---------------logic/methods--------------------------------------------------------
