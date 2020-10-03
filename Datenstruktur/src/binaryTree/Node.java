@@ -5,7 +5,6 @@ public class Node {
 
     private Node leftNode;
     private Node rightNode;
-//    private Node parentNode;
 
     public Node(int value) {
         this.value = value;

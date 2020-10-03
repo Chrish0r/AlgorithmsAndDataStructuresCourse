@@ -13,5 +13,14 @@ public class Main {
         binaryTree.add(34);
 
         binaryTree.traverseInOrder(binaryTree.getRootNode());
+        System.out.println();
+
+        binaryTree.containsNodeRecursive(binaryTree.getRootNode(), 3);
+
+        if(!(binaryTree.getIsContained())) {
+            System.out.println("ERROR: search item not found!");
+        }
+
+        binaryTree.deleteNodeRecursive(binaryTree.getRootNode(), 300);
     }
 }
