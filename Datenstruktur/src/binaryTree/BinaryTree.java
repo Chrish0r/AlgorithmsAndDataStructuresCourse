@@ -32,12 +32,30 @@ public class BinaryTree {
        return current;
     }
 
-        // Depth-First -> Variant: in-order traversal (starts on the left)
+        // Depth-First -> Variant: in-order traversal (starts on the as far down on the left as possible)
     public void traverseInOrder(Node node) {
         if(node != null) {
             traverseInOrder(node.getLeftNode());
             System.out.println("Value(s) of node:   " + node.getValue());
             traverseInOrder(node.getRightNode());
+        }
+    }
+
+    // Variant: pre-order -> at first check root, then left hand tree and finally right hand tree
+    public void traversePreOrder(Node node) {
+        if(node != null) {
+            System.out.println("Value of node: " + node.getValue());
+            traversePreOrder(node.getLeftNode());
+            traversePreOrder(node.getRightNode());
+        }
+    }
+
+    // Variant: post-order -> at first left hand tree, then right hand tree and only at the end the rootNode
+    public void traversePostOrder(Node node) {
+        if(node != null) {
+            traversePostOrder(node.getLeftNode());
+            traversePostOrder(node.getRightNode());
+            System.out.println("Value of node: " + node.getValue());
         }
     }
 

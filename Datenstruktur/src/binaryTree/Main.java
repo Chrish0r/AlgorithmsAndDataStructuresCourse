@@ -21,6 +21,12 @@ public class Main {
             System.out.println("ERROR: search item not found!");
         }
 
-        binaryTree.deleteNodeRecursive(binaryTree.getRootNode(), 300);
+      //  binaryTree.deleteNodeRecursive(binaryTree.getRootNode(), 300);
+        System.out.println();
+
+        binaryTree.traversePreOrder(binaryTree.getRootNode());
+        System.out.println();
+
+        binaryTree.traversePostOrder(binaryTree.getRootNode());
     }
 }
