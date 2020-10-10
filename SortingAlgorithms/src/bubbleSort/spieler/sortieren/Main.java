@@ -1,6 +1,4 @@
-package bubblesort.spieler.sortieren;
-
-import bubblesort.arrayList.Person;
+package bubbleSort.spieler.sortieren;
 
 import java.util.ArrayList;
 import java.util.List;

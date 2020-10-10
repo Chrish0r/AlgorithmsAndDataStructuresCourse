@@ -1,4 +1,4 @@
-package bubblesort.spieler.sortieren;
+package bubbleSort.spieler.sortieren;
 
 public class Spieler implements Comparable<Spieler> {
     private String name;

@@ -1,4 +1,4 @@
-package bubblesort.arrayList;
+package bubbleSort.arrayList;
 
 /**
  * Bem.: Comparable<T> IF dann implementieren, wenn man Objekte bzgl.
@@ -15,9 +15,6 @@ package bubblesort.arrayList;
  *
  *  compareTo nur bei Strings oder Attributen von Objekten.
  */
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class Person implements Comparable<Person> {
     String vorname;

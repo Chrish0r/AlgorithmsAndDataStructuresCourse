@@ -1,4 +1,4 @@
-package bubblesort;
+package bubbleSort;
 
 /**
  * Bem.: Comparable<T> IF dann implementieren, wenn man Objekte bzgl.

@@ -1,4 +1,4 @@
-package bubblesort.arrayList;
+package bubbleSort.arrayList;
 
 import java.util.ArrayList;
 import java.util.List;

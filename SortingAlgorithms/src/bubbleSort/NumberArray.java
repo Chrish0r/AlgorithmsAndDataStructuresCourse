@@ -1,4 +1,4 @@
-package bubblesort;
+package bubbleSort;
 
 public class NumberArray {
     public NumberArray() {}
