@@ -27,6 +27,11 @@ public class StackExample2 {
             stack = newStack;
         }
         stack[top++] = value;
+	/*
+ 	   stack[top] = value;
+	   top = top + 1;
+        Note: within lecture different approach -> top has been initialized (within constructor) with -1 and then everywhere else post-increment and/or +1
+	*/
     }
 
     public int pop() throws UnderflowException {
