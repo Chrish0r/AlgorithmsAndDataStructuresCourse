@@ -150,14 +150,14 @@ public class Matrix {
     }
 
     // mult()
-           // TODO: Fehlersuche via Debugger -> wiki-bsp.: https://de.wikipedia.org/wiki/Matrizenmultiplikation
+    
     public void mult(int[][] mat1, int[][] mat2) {
         int rowMult = mat1.length; // gets number of row of mat1
         int colMult = mat2[0].length; // gets number of columns of mat2
 
         for (int row = 0; row < rowMult; row++) {
             for (col = 0; col < colMult; col++) {
-                for (int k = 0; k < rowMult; k++)
+                for (int k = 0; k < mat1[0].length; k++)
                     this.array2D[row][col] += mat1[row][k] * mat2[k][col];
             }
         }

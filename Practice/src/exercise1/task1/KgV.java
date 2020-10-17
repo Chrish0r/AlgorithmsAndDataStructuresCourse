@@ -10,12 +10,12 @@ public class KgV {
        // int a = 3;
        // int b = 8;
 
-        System.out.println("least common multiple of " + a + " and " + b + " is " + new KgV().kgV(a, b));
+        System.out.println("least common multiple of " + a + " and " + b + " is " + kgV(a, b));
      //   System.out.println("least common multiple of " + a + " and " + b + " is " + new KgV().kgVAlt(a, b));
 
     }
 
-    public int kgV(int a, int b) {
+    public static int kgV(int a, int b) {
         int kgv = Math.max(a, b);
 
         while(true) {
@@ -27,7 +27,7 @@ public class KgV {
         return kgv;
     }
 
-    private int kgVAlt(int a, int b) {
+    private static int kgVAlt(int a, int b) {
         // general formula: ggT(a, b) * kgV(a, b) = a * b <=> kgV(a, b) = (a * b) / ggT(a, b)
       return (a * b) / EuklidALG.ggT(a, b);
     }
