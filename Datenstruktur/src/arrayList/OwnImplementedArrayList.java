@@ -22,6 +22,7 @@ public class OwnImplementedArrayList<E> { // E is a placeholder for any element/
         OwnImplementedArrayList arrayList = new OwnImplementedArrayList();
         OwnImplementedArrayList arrayList2 = new OwnImplementedArrayList();
 
+
         arrayList2.add("Person 1");
         arrayList2.add("Person 2"); // element to remove
         arrayList2.add("Person 3");
