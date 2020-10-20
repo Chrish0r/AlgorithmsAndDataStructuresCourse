@@ -150,7 +150,7 @@ public class Matrix {
     }
 
     // mult()
-    
+
     public void mult(int[][] mat1, int[][] mat2) {
         int rowMult = mat1.length; // gets number of row of mat1
         int colMult = mat2[0].length; // gets number of columns of mat2

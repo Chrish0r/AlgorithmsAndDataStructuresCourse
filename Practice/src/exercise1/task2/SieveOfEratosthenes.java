@@ -7,7 +7,7 @@ import java.util.List;
 public class SieveOfEratosthenes {
     public static void main(String[] args) {
        // int k = 100;
-        int k = 10000;
+        int k = 1000;
 
         ArrayList<Integer> primes = createPrimeList(k);
 
