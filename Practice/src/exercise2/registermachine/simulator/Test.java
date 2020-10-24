@@ -8,40 +8,42 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class RAMSimulator {
+public class Test {
+    private int n;
+    private int sum;
+
+
 
     public static void main(String[] args) {
         File ramFile = new File("C:\\Users\\User\\Desktop\\Studium-OTH\\Lernplan\\Semester-4\\Algorithmen und Datenstukturen\\Übungen\\Blatt2\\Abgabe_Blatt2\\Aufgabe1\\RAM.txt");
-        int n, sum;
+        Test o = new Test();
 
         List<String> fileContent = extractStringFromFile(ramFile);
+
 
         // simulating ram
         for(String line : fileContent) {
             switch(line) {
-              //  case "N DD 0h ":
-               //     Scanner sc = new Scanner(System.in);
-                //    System.out.println("Please enter 'n' as your upper bound:");
-              //      n = sc.nextInt();
-               //     break;
+                  case "N DD 0h ":
+                      Scanner sc = new Scanner(System.in);
+                      System.out.println("Please enter 'n' as your upper bound:");
+                      o.setN(sc.nextInt());
+                      break;
 
-              //  case "SUM DD 0h":
-                   // int sum = 0;
-                //    break;
+                  case "SUM DD 0h":
+                    o.setSum(0);
+                     break;
 
                 case "; RECHNEN":
-                    Scanner sc = new Scanner(System.in);
-                    System.out.println("Please enter 'n' as your upper bound:");
-                    n = sc.nextInt();
-                    sum = 0;
 
-                    for(int i = n; i > 0; i--) {
-                        sum += i;
+                    for(int i = o.getN(); i > 0; i--) {
+                        o.setSum(o.getSum() + i);
                     }
-                    System.out.println(sum);
                     break;
 
-               // case "PRINT_DEC 4, [SUM]":
+                 case "PRINT_DEC 4, [SUM]":
+                     System.out.println(o.getSum());
+                     break;
             }
         }
     }
@@ -58,5 +60,21 @@ public class RAMSimulator {
             e.printStackTrace();
             return null;
         }
+    }
+
+    public int getN() {
+        return n;
+    }
+
+    public void setN(int n) {
+        this.n = n;
+    }
+
+    public int getSum() {
+        return sum;
+    }
+
+    public void setSum(int sum) {
+        this.sum = sum;
     }
 }
