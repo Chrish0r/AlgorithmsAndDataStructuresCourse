@@ -29,8 +29,10 @@ public class InsertionSortExample {
     }
 
     public int[] insertionSort(int[] arrayToSort) {
+	int current; // can be also called 'key'
+
         for(int i = 1; i < arrayToSort.length; i++) {
-            int current = arrayToSort[i]; // the one further element to add - at the start not yet in sorted area
+            current = arrayToSort[i]; // the one further element to add - at the start not yet in sorted area
 
             int j = i;
             while(j > 0 && arrayToSort[j - 1] > current) {
