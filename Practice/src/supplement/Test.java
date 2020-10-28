@@ -2,6 +2,10 @@ package supplement;
 
 public class Test {
     public static void main(String[] args) {
+    //    int a = 0, b = 3;
+    //    System.out.println( (int) Math.ceil((a+b) / 2));
+
+
         int[][] array = {
                 {-13, 25, 34, 12, -3, 7, -87, 28, -77, 11},
                 {-13, 25, 34, 12, -3, 7, -87, 28, 77, 21}
