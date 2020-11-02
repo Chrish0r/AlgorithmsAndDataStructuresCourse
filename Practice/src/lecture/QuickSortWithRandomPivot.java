@@ -1,6 +1,8 @@
 package lecture;
 
-public class QuickSort {
+import java.util.Random;
+
+public class QuickSortWithRandomPivot {
     public static void main(String[] args) {
         int[] array = {34, 45, 12, 34, 23, 18, 38, 17, 43, 51};
         int first = 0;
@@ -17,9 +19,11 @@ public class QuickSort {
     }
 
     private static void quickSort(int[] arr, int first, int last) {
+        Random ran = new Random();
         int part = 0; // separation value
 
         if(first < last) {
+            first = ran.nextInt(last - first) + first;
             part = PreparePartition(arr, first, last, part);
 
             quickSort(arr, first, part-1);
@@ -47,13 +51,4 @@ public class QuickSort {
 
         return part;
     }
-
-    /* it works with the helper method below as well, but for a better algorithmic overview I rather resist on using this helper functiion
-    private static void swap(int[] arr, int a, int b) {
-        int h = arr[b];
-        arr[b] = arr [a];
-        arr[a] = h;
-    }
-
-     */
 }
