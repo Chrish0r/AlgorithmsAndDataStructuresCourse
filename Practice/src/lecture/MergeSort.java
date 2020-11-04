@@ -51,7 +51,6 @@ public class MergeSort {
         for(int i = 0; i < n; i++) {
             arr[first + i] = arrNew[i];
         }
-
-
+        arrNew = null; // Hilfs-Array wird vom garbage collector wieder freigegeben
     }
 }

@@ -20,7 +20,7 @@ public class SelectionSort {
         for(int i = 0; i < n; i++) {
             min = i;
 
-            for(int j = i; j < n; j++) { // innerhalb dieser inneren Schleife wir die Position des Mimiums ermittelt
+            for(int j = i; j < n; j++) { // innerhalb dieser inneren Schleife wird die Position des Mimiums ermittelt
                 if(a[j] < a[min]) {
                     min = j; // neues min ist an Position j
                 }

@@ -1,4 +1,4 @@
-package lecture;
+package exercise4.task3;
 
 public class BubbleSort {
     public static void main(String[] args) {
@@ -15,19 +15,15 @@ public class BubbleSort {
         }
     }
 
-    // logic: the smallest value goes from end to start
-    public static void bubbleSort(int arr[], int n) {
-       // int swapCount = 0;
+    private static void bubbleSort(int[] arr, int n) {
         for(int i = 0; i < n; i++) {
-            for(int j = n-2; j >= i; j--) {
+            for(int j = 0; j < n-i-1; j++) {
                 if(arr[j] > arr[j+1]) {
-                    int h = arr[j];
+                    int temp = arr[j];
                     arr[j] = arr[j+1];
-                    arr[j+1] = h;
-                   // swapCount++;
+                    arr[j+1] = temp;
                 }
             }
         }
-     //   System.out.println("swap count is: " + swapCount);
     }
 }
