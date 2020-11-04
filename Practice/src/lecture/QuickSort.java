@@ -20,14 +20,14 @@ public class QuickSort {
         int part = 0; // separation value
 
         if(first < last) {
-            part = PreparePartition(arr, first, last, part);
+            part = preparePartition(arr, first, last, part);
 
             quickSort(arr, first, part-1);
             quickSort(arr, part+1, last);
         }
     }
 
-    private static int PreparePartition(int[] arr, int first, int last, int part) {
+    private static int preparePartition(int[] arr, int first, int last, int part) {
         int pivot = arr[first];
         part = first-1;
 
