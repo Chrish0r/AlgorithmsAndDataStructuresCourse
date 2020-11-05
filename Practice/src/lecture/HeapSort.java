@@ -49,7 +49,7 @@ public class HeapSort {
         }
 
         if(largest != root) {
-            swap(arr, root, largest); // the values get swapped, but the indices stay the same
+            swap(arr, root, largest); // the values get swapped, but the indices stay the same.
             heapify(arr, first, last, largest);
         }
     }
