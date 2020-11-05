@@ -22,11 +22,11 @@ public class MergeSort {
             mergeSort(arr, first, m-1);
             mergeSort(arr, m, last);
 
-            Merge(arr, first, last, m);
+            merge(arr, first, last, m);
         }
     }
 
-    private static void Merge(int[] arr, int first, int last, int m) {
+    private static void merge(int[] arr, int first, int last, int m) {
         int n = last - first + 1;
         int arr1First = first, arr1Last = m-1;
         int arr2First = m, arr2Last = last;

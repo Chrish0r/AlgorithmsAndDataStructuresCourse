@@ -19,11 +19,9 @@ public class QuickSortWithRandomPivot {
     }
 
     private static void quickSort(int[] arr, int first, int last) {
-        Random ran = new Random();
         int part = 0; // separation value
 
         if(first < last) {
-            first = ran.nextInt(last - first) + first;
             part = PreparePartition(arr, first, last, part);
 
             quickSort(arr, first, part-1);
@@ -32,6 +30,8 @@ public class QuickSortWithRandomPivot {
     }
 
     private static int PreparePartition(int[] arr, int first, int last, int part) {
+        random(arr, first, last);
+
         int pivot = arr[first];
         part = first-1;
 
@@ -50,5 +50,14 @@ public class QuickSortWithRandomPivot {
         arr[first] = h;
 
         return part;
+    }
+
+    private static void random(int[] arr, int first, int last) {
+        Random ran = new Random();
+        int pivot = ran.nextInt(last - first) + first;
+
+        int temp = arr[pivot];
+        arr[pivot] = arr[first];
+        arr[first] = temp;
     }
 }
