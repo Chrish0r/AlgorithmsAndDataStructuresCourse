@@ -1,4 +1,4 @@
-package lecture;
+package lecture.sortierAlgorithmen;
 
 public class MergeSort {
     public static void main(String[] args) {

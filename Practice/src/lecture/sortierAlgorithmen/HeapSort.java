@@ -1,9 +1,10 @@
-package lecture;
+package lecture.sortierAlgorithmen;
 
 public class HeapSort {
     public static void main(String[] args) {
-     //   int[] array = {34, 45, 12, 34, 23, 18, 38, 17, 43, 51};
-        int[] array = { 2,4,9,18,21,37};
+        int[] array = {5, 3, 1, 2, 6, 4};
+       // int[] array = {34, 45, 12, 34, 23, 18, 38, 17, 43, 51};
+       // int[] array = { 2,4,9,18,21,37};
 
         int first = 0;
         int last = array.length-1;

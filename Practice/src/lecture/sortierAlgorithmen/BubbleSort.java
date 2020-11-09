@@ -1,4 +1,4 @@
-package lecture;
+package lecture.sortierAlgorithmen;
 
 public class BubbleSort {
     public static void main(String[] args) {

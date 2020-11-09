@@ -4,11 +4,9 @@ import java.util.Random;
 
 public class QuickSortWithRandomPivot {
     public static void main(String[] args) {
-      //  Random ran = new Random();
 
         int[] array = {34, 45, 12, 34, 23, 18, 38, 17, 43, 51};
-   //     int first = ran.nextInt(array.length - 1);
-        // first = ran.nextInt(last - first) + first;
+
         int first = 0;
         int last = array.length-1;
 
@@ -52,7 +50,9 @@ public class QuickSortWithRandomPivot {
                 arr[i] = temp;
             }
         }
-        // swapping
+        /* through this swap the pivot-element will be placed at the required position (part-Index)
+           to ensure that all elements left from it at <= pivot and all elements right from it are >= pivot
+         */
         int temp = arr[part];
         arr[part] = arr[first];
         arr[first] = temp;
