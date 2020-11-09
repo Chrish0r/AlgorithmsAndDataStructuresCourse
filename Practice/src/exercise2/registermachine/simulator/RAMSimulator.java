@@ -36,8 +36,9 @@ public class RAMSimulator {
 
                 case "; RECHNEN":
 
-                    for(int i = o.getN(); i > 0; i--) {
+                    for(int i = o.getN(); i >= 0; i--) {
                         o.setSum(o.getSum() + i);
+                      //  o.setSum((int) (o.getSum() + Math.pow(2,i))); // if sum(2^i)
                     }
                     break;
 
