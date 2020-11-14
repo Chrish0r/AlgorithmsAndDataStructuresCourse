@@ -3,28 +3,63 @@ package exercise5.task4;
 public class SumComposited {
     public static void main(String[] args) {
         int[] array = {-5, 13, -32, 7, -3, 17, 23, 12, -35, 19};
-        int s = -20; // -32 + 12
+       // int otherArray[]=array.clone();
+        int s = 26; // 7 + 17
+
+        mergeSort(array, 0, array.length-1);
+
+        /*
+        for(int i = 0; i < array.length; i++) {
+            if(i == array.length - 1) {
+                System.out.println(array[i]);
+                break;
+            }
+            System.out.print(array[i] + ", ");
+        }
+        */
 
         System.out.println("Can the sum " + s + " be built out of two numbers of the field?");
         System.out.println(sumIsCompositedSlow(array, array.length, s));
         System.out.println("-----------------------------------------------");
 
         System.out.println("Can the sum " + s + " be built out of any two numbers of the field?");
-        System.out.println(sumIsComposited(array, array.length, s));
-
-
-
-/*
-        if (algo2(array, 2)) {
-            System.out.println("True");
-        } else {
-            System.out.println("False");
+        sumIsComposited(array, 0, array.length-1, s);
+    }
+     // Here the unning time complexity is n log n
+    private static boolean sumIsComposited(int[] a, int first, int last, int s) {
+        while(first != last) {
+            if((a[first] + a[last]) == s) {
+                System.out.println("Yes, the sum can be built out of following two numbers within the field:");
+                System.out.println(a[first] + " + " + a[last] + " = " + s);
+                return true;
+            }
+            if((a[first] + a[last]) < s) {
+                first++;
+            } else {
+                last--;
+            }
         }
-
- */
+        System.out.println("ERROR: sum cannot be built out of two numbers within the field...");
+        return false;
     }
 
-    private static boolean sumIsComposited(int[] a, int n, int s) {
+    private static boolean sumIsComposited3(int[] a, int first, int n, int s) {
+        int i, j = first + 1;
+
+        for(i = first ; i < n -1; j++) {
+            if((a[i] + a[j]) == s) {
+                System.out.println("Yes, the sum can be built out of following two numbers within the field:");
+                System.out.println(a[i] + " + " + a[j] + " = " + s);
+                return true;
+            }
+            if((a[i] + a[j]) > s) {
+                return sumIsComposited(a, i+1, n, s);
+            }
+        }
+        return false;
+    }
+
+    private static boolean sumIsComposited2(int[] a, int n, int s) {
         int i = 0, j = 0;
         while (i < n) {
             j = i;
@@ -63,43 +98,42 @@ public class SumComposited {
         return false;
     }
 
+    // sorting array as preparation to improve running time to Theta (n log n)
+    private static void mergeSort(int[] arr, int first, int last) {
+        if (first <  last) {
+            int m = (first + last + 1) / 2; // halbieren, teilen UND Mitte aufrunden
+            mergeSort(arr, first, m-1);
+            mergeSort(arr, m, last);
 
-    public static boolean algo2(int a[], int s) {
+            merge(arr, first, last, m);
+        }
+    }
 
-        int i = 0;
-        int erg, j = 0;
+    private static void merge(int[] arr, int first, int last, int m) {
+        int n = last - first + 1;
+        int arr1First = first, arr1Last = m-1;
+        int arr2First = m, arr2Last = last;
 
-        while (a.length > 0 && i != a.length) {
+        int[] arrNew = new int[n];
 
-            if (i == j) {
-                j++;
-
-                if (a.length == j) {
-                    i++;
-                    j = 0;
+        for(int i = 0; i < n; i++) {
+            if(arr1First <= arr1Last ) {
+                if(arr2First <= arr2Last) {
+                    if(arr[arr1First] <= arr[arr2First]) {
+                        arrNew[i] = arr[arr1First++];
+                    } else {
+                        arrNew[i] = arr[arr2First++];
+                    }
+                } else {
+                    arrNew[i] = arr[arr1First++];
                 }
             } else {
-                erg = a[i] + a[j];
-                if (s == erg) {
-                    return true;
-                }
-
-                j++;
-
-                if (a.length == j) {
-                    i++;
-                    j = 0;
-                }
+                arrNew[i] = arr[arr2First++];
             }
         }
-
-        return false;
-
-        /* Hier ist das Laufzeitverhalten besser da keine for-Schleifen
-         * drin sind. Bedeutet das die Komplexität sich gebessert hat
-         * hinsichtlich des Laufzeitverhaltens. Es ist nun O(nlogn) wegen
-         * der while schleife die O(logn) ist. n ist dagegen das Laufen des Arrays*/
-
-
+        for(int i = 0; i < n; i++) {
+            arr[first + i] = arrNew[i];
+        }
+        arrNew = null; // Hilfs-Array wird vom garbage collector wieder freigegeben
     }
 }

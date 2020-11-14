@@ -53,7 +53,7 @@ public class MergeSort {
                 i++; // gehen eins weiter
             } else {
                 tempArr[k] = arr[j];
-                j--; // gehen im hinterem Teil-Array mit Zeiger eins weiter, d.h. nach vorne, da im zweitem Teil-Array ganz hinten begonnen wurde
+                j--; // gehen im hinterem Teil-Array mit Zeiger eins weiter nach links, d.h. nach vorne, da im zweitem Teil-Array ganz hinten begonnen wurde
             }
         }
         for(int k = 0; k < n; k++) {
