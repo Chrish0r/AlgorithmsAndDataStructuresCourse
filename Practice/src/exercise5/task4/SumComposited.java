@@ -25,7 +25,7 @@ public class SumComposited {
         System.out.println("Can the sum " + s + " be built out of any two numbers of the field?");
         sumIsComposited(array, 0, array.length-1, s);
     }
-     // Here the unning time complexity is n log n
+     // Here the running time complexity is n log n
     private static boolean sumIsComposited(int[] a, int first, int last, int s) {
         while(first != last) {
             if((a[first] + a[last]) == s) {

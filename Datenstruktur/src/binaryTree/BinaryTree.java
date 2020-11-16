@@ -104,6 +104,7 @@ public class BinaryTree {
             // 3rd case: node has two children
             int smallestValue = findSmallestValue(current.getRightNode());
             current.setValue(smallestValue);
+
             current.setRightNode(deleteNodeRecursive(current.getRightNode(), smallestValue));
             return current;
         }
