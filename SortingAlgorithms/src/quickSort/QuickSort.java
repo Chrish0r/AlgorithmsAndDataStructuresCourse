@@ -45,7 +45,7 @@ public class QuickSort {
                 int temp = arraySorted[i];
                 arraySorted[i] = arraySorted[j];
                 arraySorted[j] = temp;
-                // incrementing i,j so that they keep going within the outer while-loop
+                // incrementing i and  decrementing j so that they keep going within the outer while-loop
                 i++;
                 j--;
             }

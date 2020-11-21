@@ -13,7 +13,7 @@ public class Element {
 }
 
 class SearchTree {
-    List<Integer> field = new ArrayList<>();
+    // List<Integer> field = new ArrayList<>();
     private Element root;
 
     public SearchTree() {
@@ -110,12 +110,14 @@ class SearchTree {
         System.out.println();
     }
 
+    /*
     public void printField() {
         for(int i = 0; i < field.size(); i++) {
             System.out.print(field.get(i) + "  ");
         }
     }
 
+     */
 
 
     // delete node

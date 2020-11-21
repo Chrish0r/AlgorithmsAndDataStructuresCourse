@@ -12,8 +12,8 @@ public class LinkedListExample {
         list.add("Laura");
         list.add("Ralf");
 
-        list.addFirst("Chris");
-        list.addLast("Andreas");
+        list.addFirst("Chris"); // head
+        list.addLast("Andreas"); // tail 
 
         for(String person : list) {
             System.out.println(person);
