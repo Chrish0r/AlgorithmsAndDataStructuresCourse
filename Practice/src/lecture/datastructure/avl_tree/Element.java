@@ -40,12 +40,12 @@ class AVLTree {
     }
 
     private Element rotateLeft(Element a) {
-        Element b = a.right;
+        Element b = a.right; // future root
 
-        a.right = b.left;
-        b.left = a;
+        a.right = b.left;  // linker Nachfolger von b, wird zum rechtem Nachfolger von a (vorherige root)
+        b.left = a;     // a kommt links zu b nach unten
 
-        a = b;
+        a = b; // b wird zu neuen root
 
         updateHeight(a.left);
         updateHeight(a);
@@ -56,7 +56,7 @@ class AVLTree {
     private Element rotateRight(Element a) {
         Element b = a.left;
 
-        a.left = b.right;
+        a.left = b.right; // b.right wird zu a.left
         b.right = a;
         a = b;
 
@@ -80,7 +80,64 @@ class AVLTree {
         return a;
     }
 
+    private Element checkRotationRight(Element element) {
+        if(element != null) {
+            if(element.left != null) {
+                if(getHeight(element.left) - getHeight(element.right) == 2) {
+                    if(getHeight(element.left.right) > getHeight(element.left.left)) {
+                        element = doubleRotationRight(element); // da innerer Teilbaum zu hcch ist
+                    } else {
+                        element = rotateRight(element); // äußerer Teilbaum zu hoch -> muss einfach-rotiert werden
+                    }
+                } else {
+                    updateHeight(element);
+                }
+            } else {
+                updateHeight(element);
+            }
+        }
+        return  element;
+    }
 
+    private Element checkRotationLeft(Element element) {
+        if(element != null) {
+            if(element.right != null) {
+                if(getHeight(element.right) - getHeight(element.left) == 2) {
+                    if(getHeight(element.right.left) > getHeight(element.right.right)) {
+                        element = doubleRotationLeft(element); // da innerer Teilbaum zu hcch ist
+                    } else {
+                        element = rotateLeft(element); // äußerer Teilbaum zu hoch -> muss einfach-rotiert werden
+                    }
+                } else {
+                    updateHeight(element);
+                }
+            } else {
+                updateHeight(element);
+            }
+        }
+        return  element;
+    }
+
+    private Element insert(Element element, int value) {
+        if(element == null) {
+            element = new Element();
+            element.height = 0;
+            element.value = value;
+            element.left = null;
+            element.right = null;
+        } else {
+            if(value <= element.value) {
+                insert(element.left, value);
+                element = checkRotationRight(element);
+            } else {
+                insert(element.right, value);
+                element = checkRotationLeft(element);
+            }
+        }
+        return element;
+    }
+
+    // ToDo private delete
 
     private void print(Element root) { // in order: left - rootOutput - right
         if(root != null) {
@@ -95,10 +152,17 @@ class AVLTree {
     }
 
     //------------------ public logic----------------------------------------------
+    public void insert(int value) {
+        insert(root, value);
+    }
+
+    // ToDo public delete
+
     public void print() {
         print(root);
         System.out.println();
     }
+
 
 
 

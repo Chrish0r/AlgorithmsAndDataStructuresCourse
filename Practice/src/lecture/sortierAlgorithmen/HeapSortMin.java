@@ -22,47 +22,46 @@ public class HeapSortMin {
 
     //-------------------------------logic----------------------------------
 
-    public static void heapSort(int[] a, int first, int last) {
-        buildHeap(a, first, last);
 
-        for(int i = first; i < last; i++) {
-            heapify(a, i+1, last,i+1);
+    private static void heapSort(int[] arr, int first, int last) {
+        buildHeap(arr, first, last);
+
+        for(int i = last; i > first; i--) {
+            swap(arr, first, i);
+            heapify(arr, first, i - 1, first); // (i - 1) -> "new Last" after swap
         }
     }
 
-    public static void buildHeap(int[] a, int first, int last) {
-        int n = last - first + 1;
-        for(int i = first + (n-2)/2; i >= first; i--) {
-            heapify(a, first, last, i);
+    private static void buildHeap(int[] arr, int first, int last) {
+        int n = last - first + 1; // current last = (n - 1)
+        for(int i = first + (n-2)/2; i >= first; i--) { // the 1st 'first' can be potentially cut off / reduced
+            heapify(arr, first, last, i); // i will be considered as current root
         }
     }
 
-    public static void heapify(int[] a, int first, int last, int root) {
+    private static void heapify(int[] arr, int first, int last, int root) {
         int smallest;
-        int left = 2 * (root) + 1;
-        int right = 2 * (root) + 2;
+        int left = first + 2*(root - first) + 1, right = first + 2*(root - first) + 2;
 
-        if(left <= last && a[left] < a[root]) {
+        if(left <= last && arr[left] < arr[root]) {
             smallest = left;
         } else {
             smallest = root;
         }
 
-        if(right <= last && a[right] < a[smallest]) {
+        if(right <= last && arr[right] < arr[smallest]) {
             smallest = right;
         }
 
         if(smallest != root) {
-            swap(a, root, smallest);
-            heapify(a, first, last, smallest); // wird nur rekursiv aufgerufen, wenn root != smallest
+            swap(arr, root, smallest); // the values get swapped, but the indices stay the same.
+            heapify(arr, first, last, smallest);
         }
-
-
     }
-       // helper method
-    public static void swap(int[] a, int root, int smallest) {
-        int temp = a[root];
-        a[root] = a[smallest];
-        a[smallest] = temp;
+
+    private static void swap(int [] arr, int rootPos, int smallestPos) {
+        int temp = arr[rootPos];
+        arr[rootPos] = arr[smallestPos];
+        arr[smallestPos] = temp;
     }
 }
