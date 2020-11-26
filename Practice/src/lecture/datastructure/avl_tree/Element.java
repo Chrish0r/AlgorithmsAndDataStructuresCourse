@@ -67,15 +67,15 @@ class AVLTree {
     }
 
     private Element doubleRotationLeft(Element a) {
-        rotateRight(a.right);
-        rotateLeft(a);
+        a = rotateRight(a.right);
+        a = rotateLeft(a);
 
         return a;
     }
 
     private Element doubleRotationRight(Element a) {
-        rotateLeft(a.left);
-        rotateRight(a);
+        a = rotateLeft(a.left);
+        a = rotateRight(a);
 
         return a;
     }
@@ -127,10 +127,10 @@ class AVLTree {
             element.right = null;
         } else {
             if(value <= element.value) {
-                insert(element.left, value);
+               element.left = insert(element.left, value);
                 element = checkRotationRight(element);
             } else {
-                insert(element.right, value);
+                element.right = insert(element.right, value);
                 element = checkRotationLeft(element);
             }
         }

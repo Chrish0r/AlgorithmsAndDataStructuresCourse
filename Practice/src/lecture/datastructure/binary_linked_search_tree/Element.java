@@ -34,7 +34,7 @@ class SearchTree {
 
       //  searchTree.printField();
 
-        searchTree.deleteValue(8);
+        searchTree.deleteValue(9);
         searchTree.print();
 
     }
@@ -157,10 +157,11 @@ class SearchTree {
         }
 
         if(o < current.value) {
-            current.left = deleteValueRec(current.left, o); // continue the search on the left hand
+            deleteValueRec(current.left, o); // continue the search on the left hand
             return current;
+
         } else {
-            current.right = deleteValueRec(current.right, o); // continue the search on the right hand
+            deleteValueRec(current.right, o); // continue the search on the right hand
             return current;
         }
     }
