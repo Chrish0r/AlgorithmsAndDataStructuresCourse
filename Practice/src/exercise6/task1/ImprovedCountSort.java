@@ -2,8 +2,8 @@ package exercise6.task1;
 
 public class ImprovedCountSort {
     public static void main(String[] args) {
-        int[] array = {34, 45, 12, 34, 23, 18, 12, 38, 17, 43, 12, 51};
-        // int[] array = {5, 3, 1, 2, 6, 4};
+      //  int[] array = {34, 45, 12, 34, 23, 18, 12, 38, 17, 43, 12, 51};
+        int[] array = {2, 3, 4, 4, 2, 2, 2, 3, 6};
         int k = max(array);
 
         int[] arraySorted = countSort(array, array.length, k);
@@ -19,21 +19,25 @@ public class ImprovedCountSort {
 
     // improved count sort
     private static int[] countSort(int[] a, int n, int k) {
-        int[] bin = new int[k + 1]; // entspricht in Java bereits Initialisierungsschritt mit Nullen
+        int[] bin = new int[k + 1];
         int j = 1;
         int[] tempArr = new int[a.length];
 
+        // bin mit Nullen initialisieren
+        for(int i = 1; i <= k; i++) {
+            bin[i] = 0;
+        }
         // Vorkommen zählen
         for (int i = 0; i < n; i++) {
             bin[a[i]]++;
         }
         // Positionsbestimmung durch Aufsummieren der einzelnen Vorkommen
-        for (j = 1; j < k; j++) {
-            bin[j] += bin[j + 1];
+        for (j = 1; j <= k; j++) {
+            bin[j] += bin[j - 1];
         }
-        for (int i = 0; i < a.length; j++) {
-             tempArr[bin[a[i]]] = a[i];
-             bin[i]--;
+        for (int i = 0; i < n; i++) {
+             tempArr[bin[a[i]] - 1] = a[i];
+             bin[a[i]]--;
         }
         return tempArr;
     }
