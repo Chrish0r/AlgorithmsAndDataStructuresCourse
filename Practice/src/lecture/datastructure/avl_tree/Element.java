@@ -1,5 +1,6 @@
 package lecture.datastructure.avl_tree;
 
+
 public class Element {
     public int height;
     public int value;
@@ -17,7 +18,18 @@ class AVLTree {
     }
 
     public static void main(String[] args) {
+        AVLTree tree = new AVLTree();
+        int[] arr = {7,12,15,18,23,27,34};
 
+        for(int i = 0; i < arr.length; i++) {
+            tree.insert(arr[i]);
+        }
+        System.out.println("current tree:");
+        tree.print();
+
+      //  tree.deleteValue(20);
+        System.out.println("tree after deleting the value '20'");
+        tree.print();
     }
 
     //------------------ private logic----------------------------------------------
@@ -125,6 +137,7 @@ class AVLTree {
             element.value = value;
             element.left = null;
             element.right = null;
+            return element;
         } else {
             if(value <= element.value) {
                element.left = insert(element.left, value);
@@ -145,15 +158,16 @@ class AVLTree {
             print(root.left);
             System.out.print("," + root.value + ",");
             print(root.right);
-            System.out.println(")");
+            System.out.print(")");
         } else {
             System.out.print("n");
         }
     }
 
     //------------------ public logic----------------------------------------------
-    public void insert(int value) {
-        insert(root, value);
+    public Element insert(int value) {
+        root = insert(root, value);
+        return root;
     }
 
     // ToDo public delete

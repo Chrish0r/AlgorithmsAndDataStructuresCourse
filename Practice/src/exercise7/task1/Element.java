@@ -103,9 +103,9 @@ class SearchTree {
     }
 
     private int findInOrderSuccessorValueIterative(Element current) {
-        int min = 0;
-        while(current != null) {
-            min = current.value;
+        int min = current.value;
+        while(current.left != null) {
+            min = current.left.value;
             current = current.left;
         }
         return min;
