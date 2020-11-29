@@ -18,7 +18,7 @@ class SearchTree {
     public static void main(String[] args) {
         SearchTree tree = new SearchTree();
        // int[] arr = {5, 2, 3, 1, 4, 8, 7, 9, 10, 6};
-        int[] arr = {15, 5, 3, 20, 14, 16, 25, 24, 27, 18};
+        int[] arr = {15, 5, 3, 20, 14, 16, 25, 24, 27, 18, 19};
         for(int i = 0; i < arr.length; i++) {
             tree.insert(arr[i]);
         }
@@ -31,8 +31,8 @@ class SearchTree {
             System.out.println("false");
         }
 
-        tree.deleteValue(20);
-        System.out.println("tree after deleting the value '20'");
+        tree.deleteValue(16);
+        System.out.println("tree after deleting the value '16'");
         tree.print();
     }
 

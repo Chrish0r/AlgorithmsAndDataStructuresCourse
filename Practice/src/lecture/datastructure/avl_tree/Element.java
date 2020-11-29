@@ -19,17 +19,26 @@ class AVLTree {
 
     public static void main(String[] args) {
         AVLTree tree = new AVLTree();
-        int[] arr = {7,12,15,18,23,27,34};
+
+        int[] arr = {5, 6, 9, 12, 13, 3, 8, 10, 11, 16, 15, 14, 4, 2, 1};
+        // int[] arr = {5, 6, 9, 12, 13, 3, 8, 10, 11, 16, 15, 14, 4, 2};
+
+      //  int[] arr = {7,12,15,18,23,27,34};
+       // int[] arr = {15, 5, 3, 20, 14, 16, 25, 24, 27, 18, 19};
 
         for(int i = 0; i < arr.length; i++) {
             tree.insert(arr[i]);
         }
+       // tree.insert(1);
         System.out.println("current tree:");
         tree.print();
 
-      //  tree.deleteValue(20);
-        System.out.println("tree after deleting the value '20'");
-        tree.print();
+        /* delete values in following order:
+               12, 8, 5, 4, 3, 6, 15, 14
+         */
+      //  tree.delete(12);
+      //  System.out.println("tree after deleting the value '20'");
+     //   tree.print();
     }
 
     //------------------ private logic----------------------------------------------
@@ -79,14 +88,14 @@ class AVLTree {
     }
 
     private Element doubleRotationLeft(Element a) {
-        a = rotateRight(a.right);
+        a.right = rotateRight(a.right);
         a = rotateLeft(a);
 
         return a;
     }
 
     private Element doubleRotationRight(Element a) {
-        a = rotateLeft(a.left);
+        a.left = rotateLeft(a.left);
         a = rotateRight(a);
 
         return a;
@@ -116,7 +125,7 @@ class AVLTree {
             if(element.right != null) {
                 if(getHeight(element.right) - getHeight(element.left) == 2) {
                     if(getHeight(element.right.left) > getHeight(element.right.right)) {
-                        element = doubleRotationLeft(element); // da innerer Teilbaum zu hcch ist
+                        element = doubleRotationLeft(element); // da innerer Teilbaum zu hoch ist
                     } else {
                         element = rotateLeft(element); // äußerer Teilbaum zu hoch -> muss einfach-rotiert werden
                     }
@@ -140,7 +149,7 @@ class AVLTree {
             return element;
         } else {
             if(value <= element.value) {
-               element.left = insert(element.left, value);
+                element.left = insert(element.left, value);
                 element = checkRotationRight(element);
             } else {
                 element.right = insert(element.right, value);
@@ -150,7 +159,66 @@ class AVLTree {
         return element;
     }
 
-    // ToDo private delete
+    /**
+     * Step 1: find node with value to be deleted
+     * Step 2: delete node (3 cases and algo same as in binary linked search tree)
+     * step 3: verify/recreate avl-property
+     *           -> examine from bottom to top
+     *
+     * @param element -> current one
+     * @param value to be deleted
+     * @return
+     */
+    private Element delete(Element element, int value) {
+        if(element.value == value) {
+            // Fall 1: kein NF
+            if(element.left == null && element.right == null) {
+                element = null;
+                element = checkRotationRight(element);
+                element = checkRotationLeft(element);
+
+                return element;
+            }
+            // Fall 2: Nur genau 1 NF
+            if(element.left == null) {
+                element = element.right;
+                element = checkRotationRight(element);
+
+                return  element;
+            }
+            if(element.right == null) {
+                element = element.left;
+                element = checkRotationLeft(element);
+                return element;
+            }
+            // Fall 3: 2 NF -> find direct inorder-successor-value
+            int smallestVal = findMinVal(element.right);
+            element.value = smallestVal;
+            // delete inOrder-Node from right sub-tree
+            element.right = delete(element.right, smallestVal);
+
+            return element;
+                   // search code
+        } else {
+            if(value < element.value) {
+                element.left = delete(element.left, value);
+                element = checkRotationLeft(element);
+                return element;
+            } else {
+                element.right = delete(element.right, value);
+                element = checkRotationRight(element);
+                return element;
+            }
+        }
+    }
+
+    private int findMinVal(Element current) {
+        if(current.left == null) {
+            return current.value;
+        } else {
+            return findMinVal(current.left);
+        }
+    }
 
     private void print(Element root) { // in order: left - rootOutput - right
         if(root != null) {
@@ -170,14 +238,13 @@ class AVLTree {
         return root;
     }
 
-    // ToDo public delete
+    public Element delete(int value) {
+       root = delete(root, value);
+       return root;
+    }
 
     public void print() {
         print(root);
         System.out.println();
     }
-
-
-
-
 }
