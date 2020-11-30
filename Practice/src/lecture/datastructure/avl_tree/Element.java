@@ -23,8 +23,9 @@ class AVLTree {
         int[] arr = {5, 6, 9, 12, 13, 3, 8, 10, 11, 16, 15, 14, 4, 2, 1};
         // int[] arr = {5, 6, 9, 12, 13, 3, 8, 10, 11, 16, 15, 14, 4, 2};
 
-      //  int[] arr = {7,12,15,18,23,27,34};
-       // int[] arr = {15, 5, 3, 20, 14, 16, 25, 24, 27, 18, 19};
+        int[] arrDel = {12, 8, 5, 4, 3, 6, 15, 14};
+      //  int[] arrDel = {12, 8, 5, 4, 3,};
+
 
         for(int i = 0; i < arr.length; i++) {
             tree.insert(arr[i]);
@@ -36,6 +37,13 @@ class AVLTree {
         /* delete values in following order:
                12, 8, 5, 4, 3, 6, 15, 14
          */
+        System.out.println("tree after deleting some values:");
+        for(int i = 0; i < arrDel.length; i++) {
+            tree.delete(arrDel[i]);
+        }
+       // tree.delete(6);
+        tree.print();
+
       //  tree.delete(12);
       //  System.out.println("tree after deleting the value '20'");
      //   tree.print();
@@ -57,7 +65,7 @@ class AVLTree {
     }
 
     private void updateHeight(Element element) {
-        element.height = 1 + max(getHeight(element.left), getHeight(element.right));
+        element.height = 1 + max(getHeight(element.left), getHeight(element.right)); // der längste Ast zählt
     }
 
     private Element rotateLeft(Element a) {
@@ -174,21 +182,15 @@ class AVLTree {
             // Fall 1: kein NF
             if(element.left == null && element.right == null) {
                 element = null;
-                element = checkRotationRight(element);
-                element = checkRotationLeft(element);
-
                 return element;
             }
             // Fall 2: Nur genau 1 NF
             if(element.left == null) {
                 element = element.right;
-                element = checkRotationRight(element);
-
                 return  element;
             }
             if(element.right == null) {
                 element = element.left;
-                element = checkRotationLeft(element);
                 return element;
             }
             // Fall 3: 2 NF -> find direct inorder-successor-value
@@ -196,13 +198,15 @@ class AVLTree {
             element.value = smallestVal;
             // delete inOrder-Node from right sub-tree
             element.right = delete(element.right, smallestVal);
+            // check avl property after recursive call of delete-functionality around original element - RightRotation since we removed the MinValueNode from the right subtree of the element and hence the left subtree might be too high now.
+            element = checkRotationRight(element);
 
             return element;
                    // search code
         } else {
             if(value < element.value) {
                 element.left = delete(element.left, value);
-                element = checkRotationLeft(element);
+                element = checkRotationLeft(element); // opposed subtree might be now to high and thus must be potentially left-rotated
                 return element;
             } else {
                 element.right = delete(element.right, value);
