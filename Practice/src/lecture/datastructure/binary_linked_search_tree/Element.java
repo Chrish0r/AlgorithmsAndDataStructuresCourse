@@ -16,9 +16,10 @@ class SearchTree {
     // List<Integer> field = new ArrayList<>();
     private Element root;
 
-    public SearchTree() {
-        root = null; // abstract <-> no need in Java since default-initializing with null
-    };
+    public SearchTree() { // abstract <-> no need in Java since default-initializing with null
+        root = null;
+}
+
 
     public static void main(String[] args) {
         SearchTree searchTree = new SearchTree();
