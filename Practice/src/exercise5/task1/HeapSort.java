@@ -2,7 +2,8 @@ package exercise5.task1;
 
 public class HeapSort {
     public static void main(String[] args) {
-        int[] array = {-5, 13, -32, 7, -3, 17, 23, 12, -35, 19};
+       // int[] array = {-5, 13, -32, 7, -3, 17, 23, 12, -35, 19};
+        int[] array = {2, 4, 9, 18, 21, 37};
 
         int first = 0;
         int last = array.length-1;

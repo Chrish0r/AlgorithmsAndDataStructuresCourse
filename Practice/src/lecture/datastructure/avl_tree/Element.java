@@ -21,10 +21,11 @@ class AVLTree {
         AVLTree tree = new AVLTree();
 
         int[] arr = {5, 6, 9, 12, 13, 3, 8, 10, 11, 16, 15, 14, 4, 2, 1};
+        // int[] arr = {6, 11, 2, 17};
         // int[] arr = {5, 6, 9, 12, 13, 3, 8, 10, 11, 16, 15, 14, 4, 2};
 
         int[] arrDel = {12, 8, 5, 4, 3, 6, 15, 14};
-      //  int[] arrDel = {12, 8, 5, 4, 3,};
+      //  int[] arrDel = {2, 17};
 
 
         for(int i = 0; i < arr.length; i++) {
@@ -37,12 +38,15 @@ class AVLTree {
         /* delete values in following order:
                12, 8, 5, 4, 3, 6, 15, 14
          */
+
         System.out.println("tree after deleting some values:");
         for(int i = 0; i < arrDel.length; i++) {
             tree.delete(arrDel[i]);
         }
-       // tree.delete(6);
+     //   tree.delete(6);
         tree.print();
+
+
 
       //  tree.delete(12);
       //  System.out.println("tree after deleting the value '20'");
