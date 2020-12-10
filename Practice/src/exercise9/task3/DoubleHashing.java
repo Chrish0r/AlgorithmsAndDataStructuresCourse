@@ -18,7 +18,7 @@ public class DoubleHashing {
         int[] a = {10, 22, 31, 4, 15, 28, 17, 88, 59};
         // int[] a = {49, 22, 6, 52, 76, 33, 34, 13, 29, 11, 83};
         int m = 11;
-        int n = a.length;
+        int n = a.length; // number of keys
         int[] hashtable = createHashtable(a, m, n);
 
         print(hashtable);
