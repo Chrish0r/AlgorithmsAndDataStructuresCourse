@@ -1,8 +1,14 @@
 package lecture.textsearch;
 
-public class BoyerMooreALG {
+/**
+ This class is responsible for the implementation of the Boyer-Moore-Algorithm,
+ using the 'bad-charachter-strategy'
+ */
+
+public class BoyerMooreALG_with_bad_character_heuristic {
+
     public static void main(String[] args) {
-        String text = "Aallo Hallo Hello"; // 5 occurences "llo"
+        String text = "Aallo Hallo Hello"; // 1 occurence "Hallo"
         String pattern = "Hallo";
 
         char[] textArr = text.toCharArray();
@@ -16,17 +22,29 @@ public class BoyerMooreALG {
     }
 
     private static int boyerMooreSearch(char[] text, int n, char[] muster, int m) {
-        int i, j, sizeOfAlphabet = 28;
+        int i, j, sizeOfAlphabet = 28; // | i -> pos(text / j -> pos(muster)
         int[] shift = new int[sizeOfAlphabet];
 
-        convertToUppercase(text);
-        convertToUppercase(muster);
+         convertToUppercase(text);
+         convertToUppercase(muster);
 
         for(i = 0; i < sizeOfAlphabet; i++) {
             shift[i] = m; // 0 = A
         }
         for(i = 0; i < m; i++) {
             shift[getIndex(muster[i])] = m - i - 1; // <-> m - (i+1)
+
+            /*
+                 shift-table - alphabetisch (hier vereinfacht Nicht-Vorkommen am Ende unter "Rest")
+                             -> in general: shift = Musterlänge - Stelle_Buchstabe <=> m - i - 1 <=> m - (i + 1)
+
+                  A -> 3
+                  H -> 4
+                  L -> 1        (letztes Vorkommen zählt)
+                  O -> 0
+
+                  Rest -> 5 = Musterlänge m, weil diese Buchstaben nicht im Muster vorkommen.
+             */
         }
 
         int count = 0;
@@ -35,7 +53,7 @@ public class BoyerMooreALG {
         while(i < n) {
             if(text[i] == muster[j]) {
                 // match
-                if(j == 0) {
+                if(j == 0) { // das gesamte Muster ist vollständig gematcht -> count++
                     count++;
                     /*
                     effektiv gehen wir nur 1 Stelle weiter nach rechts,
@@ -44,6 +62,8 @@ public class BoyerMooreALG {
                      */
                     i += m;
                     j = m - 1; // (re)targeten wieder letzten Buchstaben des Musters
+
+                    /* Teilmatches (noch nicht vollständig fertig) */
                 } else {
                     // gehen weiter zurück nach Links um auf weitere Teilmatches zu prüfen
                     i--;
@@ -55,7 +75,7 @@ public class BoyerMooreALG {
                 bis doch noch fail kam -> so können wir direkt wieder weiter nach vorne kommen -> effizienter.
                  */
                 if(m - j > shift[getIndex(text[i])]) {
-                    i = i + m - j;
+                    i = i + m - j; // hier wird dann um Mustelänge m - j_current geschiftet
                 } else {
                     i = i + shift[getIndex(text[i])];
                 }
