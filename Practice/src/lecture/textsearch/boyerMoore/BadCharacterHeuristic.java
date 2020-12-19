@@ -1,15 +1,18 @@
-package lecture.textsearch;
+package lecture.textsearch.boyerMoore;
 
 /**
  This class is responsible for the implementation of the Boyer-Moore-Algorithm,
  using the 'bad-charachter-strategy'
  */
 
-public class BoyerMooreALG_with_bad_character_heuristic {
+public class BadCharacterHeuristic {
 
     public static void main(String[] args) {
-        String text = "Aallo Hallo Hello"; // 1 occurence "Hallo"
-        String pattern = "Hallo";
+        String text = "ALGORITHMEN UND DATENSTRUKTUREN"; // 1 occurence
+        String pattern = "DATEN";
+
+      //  String text = "Aallo Hallo Hello"; // 1 occurence "Hallo"
+      //  String pattern = "Hallo";
 
         char[] textArr = text.toCharArray();
         char[] patternArr = pattern.toCharArray();

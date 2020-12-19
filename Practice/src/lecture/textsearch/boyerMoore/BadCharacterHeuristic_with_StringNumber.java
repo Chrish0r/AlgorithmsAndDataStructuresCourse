@@ -1,19 +1,15 @@
-package lecture.textsearch;
+package lecture.textsearch.boyerMoore;
+
 /**
- This class is responsible for the implementation of the Boyer-Moore-Algorithm,
- using the 'horspool-heuristic'.
- Principle is the same as the alg using the "bad-character-heuristic", but follwing changes:
- 1. The last character within the pattern gets not the shift-value 0, but the same shift-value
-    as all non-existing characters (within the pattern) i.e. the value of the length of the pattern.
- 2. starting not from the mismatch, but from the most right positioned character, we shift (increment i) around the value of the character
-    that is positioned most right regarding the current 'check-round'
+   This class is responsible for the implementation of the Boyer-Moore-Algorithm,
+    using the 'bad-charachter-strategy'
  */
 
-public class BoyerMooreALG_with_horspool_heuristic {
+public class BadCharacterHeuristic_with_StringNumber {
 
     public static void main(String[] args) {
-        String text = "TRUSTHARDTOOTHBRUSHES"; // 1 occurence
-        String pattern = "TOOTH";
+        String text = "363645636363645632136"; // 3 occurences "3636"
+        String pattern = "3636";
 
         char[] textArr = text.toCharArray();
         char[] patternArr = pattern.toCharArray();
@@ -26,28 +22,29 @@ public class BoyerMooreALG_with_horspool_heuristic {
     }
 
     private static int boyerMooreSearch(char[] text, int n, char[] muster, int m) {
-        int i, j, sizeOfAlphabet = 28; // | i -> pos(text / j -> pos(muster)
+        int i, j, sizeOfAlphabet = 6; // [1, 6]   | i -> pos(text / j -> pos(muster)
         int[] shift = new int[sizeOfAlphabet];
 
-        convertToUppercase(text);
-        convertToUppercase(muster);
-
+        /*
+        vorläufig erhalten alle Zeichen (auch Vorkommen im Muster)
+        des Alphabets einen shift-Wert der Musterlänge m
+         */
         for(i = 0; i < sizeOfAlphabet; i++) {
-            shift[i] = m; // 0 = A
+            shift[i] = m;
         }
-        // letzter Buchstabe "zählt nicht", weil er selben shift-Wert, wie Nicht-Vorkommen erhält, falls er vorher nicht vorkommt
-        for(i = 0; i < m - 1; i++) {
+        for(i = 0; i < m; i++) {
             shift[getIndex(muster[i])] = m - i - 1; // <-> m - (i+1)
 
             /*
-                 shift-table - alphabetisch (hier vereinfacht Nicht-Vorkommen am Ende unter "Rest")
+                 shift-table - alphabetisch
                              -> in general: shift = Musterlänge - Stelle_Buchstabe <=> m - i - 1 <=> m - (i + 1)
 
-                  H -> 5
-                  O -> 2
-                  T -> 1        (letztes Vorkommen zählt)
-
-                  Rest -> 5 = Musterlänge m, weil diese Buchstaben nicht im Muster vorkommen.
+                  1 -> 4
+                  2 -> 4
+                  3 -> 1        (letztes Vorkommen zählt)
+                  4 -> 4
+                  5 -> 4
+                  6 -> 0        (letztes Vorkommen zählt)
              */
         }
 
@@ -55,7 +52,6 @@ public class BoyerMooreALG_with_horspool_heuristic {
         j = i = m - 1; // i und j werden auf letzten Buchstaben-Index des Musters gesetzt, dort beginnen wir auch
 
         while(i < n) {
-
             if(text[i] == muster[j]) {
                 // match
                 if(j == 0) { // das gesamte Muster ist vollständig gematcht -> count++
@@ -75,31 +71,22 @@ public class BoyerMooreALG_with_horspool_heuristic {
                     j--;
                 }
             } else {
-                i = i + (m-j-1) + shift[getIndex(text[i])]; //'m+j+1' means how often we went already back til mismatch
-
+                /*
+                falls wir weiter zurückgegangen sind, als der Versatz (shift-Wert) des entsprechenden Buchstabens ist,
+                bis doch noch fail kam -> so können wir direkt wieder weiter nach vorne kommen -> effizienter.
+                 */
+                if(m - j > shift[getIndex(text[i])]) {
+                    i = i + m - j; // hier wird dann um Mustelänge m - j_current geschiftet
+                } else {
+                    i = i + shift[getIndex(text[i])];
+                }
                 j = m - 1; // (re)targeten wieder letzten Buchstaben des Musters
             }
         }
         return  count;
     }
 
-    private static void convertToUppercase(char[] a) {
-        for(int i = 0; i < a.length; i++) {
-            int numCh = (int) a[i];
-            if(numCh >= 97 && numCh <= 122) {
-                int temp = numCh - 32;
-                a[i] = (char) temp;
-            }
-        }
-    }
-
     private static int getIndex(char c) {
-        if(c == ' ') {
-            return 26;
-        }
-        if(c == ',') {
-            return 27;
-        }
-        return ((int) c - 65);
+        return ((int) c - 49); // 1 auf index 0 abgebildet
     }
 }

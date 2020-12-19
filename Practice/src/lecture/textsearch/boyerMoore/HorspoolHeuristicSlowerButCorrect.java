@@ -1,18 +1,19 @@
-package lecture.textsearch;
+package lecture.textsearch.boyerMoore;
 /**
  This class is responsible for the implementation of the Boyer-Moore-Algorithm,
- using the 'sunday-heuristic'.
+ using the 'horspool-heuristic'.
  Principle is the same as the alg using the "bad-character-heuristic", but follwing changes:
+ starting not from the mismatch, but from the most right positioned character, we shift (increment i) around the value of the character
+ that is positioned most right regarding the current 'check-round'.
+ Since the shift-value is here 0, the ALG checks for this case and shift 1 position further in this case.
 
- We shift at the value of the shift-value of the character that
- is the first character after the current text window.
- We start also shifting at the position (see above)
  */
-public class BoyerMooreALG_with_sunday_heuristic {
+
+public class HorspoolHeuristicSlowerButCorrect {
 
     public static void main(String[] args) {
-        String text = "abcabdaacbabcaabdz"; // 1 occurence
-        String pattern = "bcaab";
+        String text = "WE HOLD THUTH TRUTHS TO"; // 1 occurence
+        String pattern = "THUTH";
 
         char[] textArr = text.toCharArray();
         char[] patternArr = pattern.toCharArray();
@@ -32,18 +33,19 @@ public class BoyerMooreALG_with_sunday_heuristic {
         convertToUppercase(muster);
 
         for(i = 0; i < sizeOfAlphabet; i++) {
-            shift[i] = m; // 0 = A
+            shift[i] = m; // 0 = H
         }
-        for(i = 0; i < m ; i++) { // letzter Buchstabe "zählt nicht", weil er selben shift-Wert, wie Nicht-Vorkommen erhält
+
+        for(i = 0; i < m; i++) {
             shift[getIndex(muster[i])] = m - i - 1; // <-> m - (i+1)
 
             /*
                  shift-table - alphabetisch (hier vereinfacht Nicht-Vorkommen am Ende unter "Rest")
                              -> in general: shift = Musterlänge - Stelle_Buchstabe <=> m - i - 1 <=> m - (i + 1)
 
-                  A -> 1      (letztes Vorkommen zählt)
-                  B -> 0      (letztes Vorkommen zählt)
-                  C -> 3
+                  H -> 0
+                  U -> 2
+                  T -> 1        (letztes Vorkommen zählt)
 
                   Rest -> 5 = Musterlänge m, weil diese Buchstaben nicht im Muster vorkommen.
              */
@@ -52,7 +54,7 @@ public class BoyerMooreALG_with_sunday_heuristic {
         int count = 0;
         j = i = m - 1; // i und j werden auf letzten Buchstaben-Index des Musters gesetzt, dort beginnen wir auch
 
-        while(i < (n-1)) {
+        while(i < n) {
 
             if(text[i] == muster[j]) {
                 // match
@@ -72,9 +74,12 @@ public class BoyerMooreALG_with_sunday_heuristic {
                     i--;
                     j--;
                 }
-            } else {
-                i = i + (m-j) + shift[getIndex(text[i+ (m-j)])];
-
+            } else { // mismatch
+                if(shift[getIndex(text[i])] == 0) {
+                    i = i + 1;
+                } else {
+                    i = i + shift[getIndex(text[i])];
+                }
                 j = m - 1; // (re)targeten wieder letzten Buchstaben des Musters
             }
         }

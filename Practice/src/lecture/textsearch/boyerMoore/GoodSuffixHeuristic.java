@@ -1,11 +1,11 @@
-package lecture.textsearch;
+package lecture.textsearch.boyerMoore;
 
 /**
  This class is responsible for the implementation of the Boyer-Moore-Algorithm,
  using the 'good-suffix/end-strategy'
  */
 
-public class BoyerMooreALG_with_good_suffix_heuristic {
+public class GoodSuffixHeuristic {
 
     public static void main(String[] args) {
         String text = "Aallo Hallo Hello"; // 1 occurence "Hallo"

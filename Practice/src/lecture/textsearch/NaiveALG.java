@@ -2,8 +2,11 @@ package lecture.textsearch;
 
 public class NaiveALG {
     public static void main(String[] args) {
-        String text = "HalloHelloConnallottLoHollaollogbllo"; // 4 occurences "llo"
-        String pattern = "llo";
+        String text = "ALGORITHMEN UND DATENSTRUKTUREN"; // 1 occurence
+        String pattern = "DATEN";
+
+        // String text = "HalloHelloConnallottLoHollaollogbllo"; // 4 occurences "llo"
+        // String pattern = "llo";
 
         char[] textArr = text.toCharArray();
         char[] patternArr = pattern.toCharArray();
@@ -21,7 +24,7 @@ public class NaiveALG {
     private static int findPattern(char[] text, int n, char[] pattern, int m) {
         int count = 0;
         String indent = "";
-        String s = "llo";
+        String s = "DATEN";
 
         for(int i = 0; i <= (n - m); i++) {
             boolean match = true;
