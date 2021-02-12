@@ -25,9 +25,35 @@ public class SelectionSort {
                     min = j; // neues min ist an Position j
                 }
             }
+
+            // swap(a[i], a[min])
             int h = a[i];
             a[i] = a[min];
             a[min] = h;
+        }
+    }
+
+    static void stableSelectionSort(int[] arr, int n) {
+        // Iterate through array elements
+        for (int i = 0; i < n - 1; i++) {
+            // Loop invariant: Elements till
+            // a[i - 1] are already sorted.
+
+            // Find minimum element from
+            // arr[i] to arr[n - 1].
+            int min = i;
+            for (int j = i + 1; j < n; j++) {
+                if (arr[min] > arr[j]) {
+                    min = j;
+                }
+            }
+            // Move minimum element at current i.
+            int key = arr[min];
+            while (min > i) {
+                arr[min] = arr[min - 1];
+                min--;
+            }
+            arr[i] = key;
         }
     }
 }

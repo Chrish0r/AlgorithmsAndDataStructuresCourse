@@ -3,7 +3,8 @@ package lecture.sortierAlgorithmen;
 public class HeapSortMin {
 
     public static void main(String[] args) {
-        int[] array = {5, 3, 1, 2, 6, 4};
+        int[] array = {5, 4, 1, 3, 6, 2, 7, 8, 9, 10};
+     //   int[] array = {5, 3, 1, 2, 6, 4};
         // int[] array = {34, 45, 12, 34, 23, 18, 38, 17, 43, 51};
         // int[] array = { 2,4,9,18,21,37};
 
@@ -26,10 +27,22 @@ public class HeapSortMin {
     private static void heapSort(int[] arr, int first, int last) {
         buildHeap(arr, first, last);
 
+/** offtopic: auskommentiertes Codesnippet nur zum Test -> Prim ALG
+        int a[] = {8, 8, 7, 1, 104, 105, 106};
+        int f = 0, l = a.length - 1;
+
+        for(int i = l; i > f; i--) {
+            swap(a, f, i);
+            heapify(a, f, i - 1, f); // (i - 1) -> "new Last" after swap
+        }
+*/
+
         for(int i = last; i > first; i--) {
             swap(arr, first, i);
             heapify(arr, first, i - 1, first); // (i - 1) -> "new Last" after swap
         }
+
+
     }
 
     private static void buildHeap(int[] arr, int first, int last) {

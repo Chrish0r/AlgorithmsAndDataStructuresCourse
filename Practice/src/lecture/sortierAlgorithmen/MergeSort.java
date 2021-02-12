@@ -2,7 +2,8 @@ package lecture.sortierAlgorithmen;
 
 public class MergeSort {
     public static void main(String[] args) {
-        int[] array = {34, 45, 12, 34, 23, 18, 38, 17, 43, 51};
+       // int[] array = {34, 45, 12, 34, 23, 18, 38, 17, 43, 51};
+        int[] array = {5, 8, 1, 2, 3, 7, 4, 6};
         int first = 0;
         int last = array.length-1;
 

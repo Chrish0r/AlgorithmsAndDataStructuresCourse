@@ -21,9 +21,9 @@ public class ImprovedCountSort {
     private static int[] countSort(int[] a, int n, int k) {
         int[] bin = new int[k + 1];
         int j = 1;
-        int[] tempArr = new int[a.length];
+        int[] sortedArr = new int[n];
 
-        // bin mit Nullen initialisieren
+        // bin mit Nullen initialisieren - in Java not needed
         for(int i = 1; i <= k; i++) {
             bin[i] = 0;
         }
@@ -33,13 +33,13 @@ public class ImprovedCountSort {
         }
         // Positionsbestimmung durch Aufsummieren der einzelnen Vorkommen
         for (j = 1; j <= k; j++) {
-            bin[j] += bin[j - 1];
+            bin[j] = bin[j] + bin[j-1];
         }
-        for (int i = 0; i < n; i++) {
-             tempArr[bin[a[i]] - 1] = a[i];
+        for (int i = n-1; i >= 0; i--) {
              bin[a[i]]--;
+             sortedArr[bin[a[i]]] = a[i];
         }
-        return tempArr;
+        return sortedArr;
     }
 
     private static void simpleCountSort(int[] a, int n, int k) {

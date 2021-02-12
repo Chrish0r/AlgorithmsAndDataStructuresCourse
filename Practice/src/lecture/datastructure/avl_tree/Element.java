@@ -100,14 +100,14 @@ class AVLTree {
     }
 
     private Element doubleRotationLeft(Element a) {
-        a.right = rotateRight(a.right);
+        a.right = rotateRight(a.right); // erstmal Rotation um die Teilwurzel 'b' des zu hohen Teilbaums
         a = rotateLeft(a);
 
         return a;
     }
 
     private Element doubleRotationRight(Element a) {
-        a.left = rotateLeft(a.left);
+        a.left = rotateLeft(a.left); // erstmal Rotation um die Teilwurzel 'b' des zu hohen Teilbaums
         a = rotateRight(a);
 
         return a;
@@ -190,7 +190,7 @@ class AVLTree {
             }
             // Fall 2: Nur genau 1 NF
             if(element.left == null) {
-                element = element.right;
+                element = element.right; // reicht, weil man ja die Zeiger von dem (nur einem) re NF auch mit übernimmt (alles übernimmt) und dieser zeigt auf Null
                 return  element;
             }
             if(element.right == null) {

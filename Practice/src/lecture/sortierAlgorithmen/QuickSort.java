@@ -2,7 +2,8 @@ package lecture.sortierAlgorithmen;
 
 public class QuickSort {
     public static void main(String[] args) {
-        int[] array = {34, 45, 12, 34, 23, 18, 38, 17, 43, 51};
+        int[] array = {3, 4, 1 ,2};
+
         int first = 0;
         int last = array.length-1;
 

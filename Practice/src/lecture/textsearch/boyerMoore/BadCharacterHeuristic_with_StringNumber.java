@@ -9,7 +9,7 @@ public class BadCharacterHeuristic_with_StringNumber {
 
     public static void main(String[] args) {
         String text = "363645636363645632136"; // 3 occurences "3636"
-        String pattern = "3636";
+        String pattern = "456321";
 
         char[] textArr = text.toCharArray();
         char[] patternArr = pattern.toCharArray();
@@ -22,7 +22,7 @@ public class BadCharacterHeuristic_with_StringNumber {
     }
 
     private static int boyerMooreSearch(char[] text, int n, char[] muster, int m) {
-        int i, j, sizeOfAlphabet = 6; // [1, 6]   | i -> pos(text / j -> pos(muster)
+        int i, j, sizeOfAlphabet = 10; // [1, 6]   | i -> pos(text / j -> pos(muster)
         int[] shift = new int[sizeOfAlphabet];
 
         /*
@@ -87,6 +87,6 @@ public class BadCharacterHeuristic_with_StringNumber {
     }
 
     private static int getIndex(char c) {
-        return ((int) c - 49); // 1 auf index 0 abgebildet
+        return ((int) c - 48); // 1 auf index 0 abgebildet
     }
 }

@@ -19,21 +19,21 @@ public class QuickSortWithRandomPivot {
     }
 
     private static void quickSort(int[] arr, int first, int last) {
-        int part = 0; // separation value
+        int part; // separation value
 
         if(first < last) {
-            part = PreparePartition(arr, first, last, part);
+            part = PreparePartition(arr, first, last);
 
             quickSort(arr, first, part-1);
             quickSort(arr, part+1, last);
         }
     }
 
-    private static int PreparePartition(int[] arr, int first, int last, int part) {
+    private static int PreparePartition(int[] arr, int first, int last) {
         random(arr, first, last);
 
         int pivot = arr[first];
-        part = first-1;
+        int part = first-1;
 
         for(int i = first; i <= last; i++) {
             if(arr[i] <= pivot) {

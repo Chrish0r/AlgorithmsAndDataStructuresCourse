@@ -80,7 +80,7 @@ public class BadCharacterHeuristic {
                 if(m - j > shift[getIndex(text[i])]) {
                     i = i + m - j; // hier wird dann um Mustelänge m - j_current geschiftet
                 } else {
-                    i = i + shift[getIndex(text[i])];
+                    i = i + shift[getIndex(text[i])]; // von dort ab, wo wir uns gerabe bei den Verlgeichen befinden
                 }
                 j = m - 1; // (re)targeten wieder letzten Buchstaben des Musters
             }

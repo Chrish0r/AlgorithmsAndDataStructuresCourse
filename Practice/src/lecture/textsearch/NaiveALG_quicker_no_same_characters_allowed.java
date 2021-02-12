@@ -36,7 +36,6 @@ public class NaiveALG_quicker_no_same_characters_allowed {
 
     private static int findPattern(char[] text, int n, char[] pattern, int m) {
         int count = 0;
-        String s = "DATEN";
         int j = 0, i = 0;
 
         while(i <= (n - m)) {
@@ -55,7 +54,8 @@ public class NaiveALG_quicker_no_same_characters_allowed {
             if(j == 0) {
                 i++;
             } else {
-                i = i + j; // cannot match anymore within this range when only different characters are existing, within the pattern
+                i = i + j; // cannot match anymore within this range when
+                            // only different characters are existing, within the pattern
             }
         }
         return count;

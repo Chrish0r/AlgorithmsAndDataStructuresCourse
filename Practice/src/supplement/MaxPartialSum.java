@@ -37,9 +37,9 @@ public class MaxPartialSum {
         return max;
     }
 
-    private static int findMaxPartialSumO_n2(int[] arr) { // running time = O(n³)
+    private static int findMaxPartialSumO_n2(int[] arr) { // running time = O(n²)
         int sum;
-        int max = 0; //  // actually no need to initialize with zero, since default value for Integer (but for illustration purposes)
+        int max = Integer.MIN_VALUE; 
         int start = 0;
         int end = 0;
 
